@@ -1,22 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
-import {
-  demoImages,
-  demoLiveSession,
-  demoFeaturedArticle,
-  demoAudio,
-  demoFatwa,
-  demoScholarQuote,
-  pick,
-} from '@/src/demo-data';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { demoImages, demoLiveSession, demoScholarQuote, pick } from '@/src/demo-data';
+import { getFeaturedArticle, getLatestAudio, getLatestFatwa } from '@/src/db';
 
-export default function HomePage({ params }: { params: { locale: string } }) {
+export const revalidate = 60;
+
+export default async function HomePage({ params }: { params: { locale: string } }) {
   unstable_setRequestLocale(params.locale);
-  const t = useTranslations('home');
-  const locale = useLocale();
+  const locale = params.locale;
+  const t = await getTranslations({ locale, namespace: 'home' });
+  const [article, audio, fatwa] = await Promise.all([
+    getFeaturedArticle(),
+    getLatestAudio(),
+    getLatestFatwa(),
+  ]);
 
   return (
     <div className="pt-20">
@@ -112,20 +111,20 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   {t('featuredBadge')}
                 </span>
                 <h3 className="mb-4 text-[32px] font-bold leading-snug text-deep-sea">
-                  {pick(demoFeaturedArticle.title, locale)}
+                  {pick(article.title, locale)}
                 </h3>
                 <p className="mb-6 text-body-md text-on-surface-variant">
-                  {pick(demoFeaturedArticle.excerpt, locale)}
+                  {pick(article.excerpt, locale)}
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-shore-blue/20"></div>
                 <div>
                   <p className="text-label-sm text-deep-sea">
-                    {pick(demoFeaturedArticle.author, locale)}
+                    {pick(article.author, locale)}
                   </p>
                   <p className="text-[12px] text-earth-brown">
-                    {pick(demoFeaturedArticle.dateDisplay, locale)}
+                    {pick(article.dateDisplay, locale)}
                   </p>
                 </div>
               </div>
@@ -139,7 +138,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 <span className="mb-4 inline-block rounded-full bg-white/20 px-3 py-1 text-label-sm text-white">
                   {t('newAudioBadge')}
                 </span>
-                <h3 className="mb-2 text-title-md">{pick(demoAudio.title, locale)}</h3>
+                <h3 className="mb-2 text-title-md">{pick(audio.title, locale)}</h3>
               </div>
               <div className="relative z-10 flex items-center justify-between">
                 <button
@@ -149,7 +148,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   <span className="material-symbols-outlined">play_arrow</span>
                 </button>
                 <span className="text-label-sm opacity-80">
-                  {pick(demoAudio.durationDisplay, locale)}
+                  {pick(audio.durationDisplay, locale)}
                 </span>
               </div>
             </div>
@@ -158,10 +157,10 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               <span className="material-symbols-outlined mb-4 text-shore-blue">quiz</span>
               <div>
                 <h4 className="mb-2 text-title-md text-deep-sea">
-                  {pick(demoFatwa.category, locale)}
+                  {pick(fatwa.category, locale)}
                 </h4>
                 <p className="line-clamp-3 text-label-sm text-on-surface-variant">
-                  {pick(demoFatwa.excerpt, locale)}
+                  {pick(fatwa.excerpt, locale)}
                 </p>
               </div>
               <Link
