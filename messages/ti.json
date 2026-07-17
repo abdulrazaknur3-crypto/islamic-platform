@@ -1,0 +1,41 @@
+{
+  "site": {
+    "name": "ኢስላሚያ መድረኽ",
+    "tagline": "ንኤርትራዊ ሕብረተሰብ ብርሃን ፍልጠት",
+    "description": "ብዓረብኛ፣ ትግርኛን እንግሊዝኛን ዝቐርብ ናይ ዳዕዋን ትምህርትን መድረኽ"
+  },
+  "nav": {
+    "home": "መበገሲ",
+    "library": "ቤተ-መጻሕፍቲ",
+    "articles": "ጽሑፋት",
+    "scholars": "ዓለምቲ",
+    "qa": "ሕቶን መልስን",
+    "live": "ቀጥታዊ ኣኼባታት",
+    "contact": "ተወከሱና"
+  },
+  "home": {
+    "heroTitle": "ጠቓሚ ፍልጠት.. ብቋንቋኻ",
+    "heroSubtitle": "መደረታት፣ ትምህርታት፣ ጽሑፋትን ፈትዋታትን ካብ ብሉጻት ዓለምቲ፣ ብዓረብኛ፣ ትግርኛን እንግሊዝኛን",
+    "exploreLibrary": "ቤተ-መጻሕፍቲ ርአ",
+    "askQuestion": "ሕቶኻ ኣቕርብ",
+    "sections": {
+      "readable": { "title": "ዝንበብ ቤተ-መጻሕፍቲ", "desc": "መጻሕፍትን ጽሑፋትን" },
+      "audio": { "title": "ድምጻዊ ቤተ-መጻሕፍቲ", "desc": "ድምጻዊ መደረታትን ትምህርታትን" },
+      "video": { "title": "ቪድዮ ቤተ-መጻሕፍቲ", "desc": "ቪድዮ ትምህርታት" },
+      "articles": { "title": "ጽሑፋት", "desc": "ኣስተምህሮኣዊ ጽሑፋት" },
+      "qa": { "title": "ሕቶን መልስን", "desc": "ብጽሑፍ ወይ ብድምጺ ሕተት" },
+      "live": { "title": "ቀጥታዊ ኣኼባታት", "desc": "ብኢንተርነት ዝካየድ ኣኼባታት ፍልጠት" }
+    },
+    "scholarsTitle": "ዓለምቲ መድረኽና",
+    "scholarsSubtitle": "ንትሕዝቶ ዝከታተሉ ብሉጻት ዓለምቲ",
+    "newsletterTitle": "ናይ ዳዕዋ ጋዜጣ",
+    "newsletterSubtitle": "ሓደስቲ ትምህርታትን ጽሑፋትን ንኽበጽሓካ ተመዝገብ",
+    "newsletterPlaceholder": "ኢመይል ኣድራሻኻ",
+    "newsletterButton": "ተመዝገብ"
+  },
+  "footer": {
+    "rights": "ኩሉ መሰላት ዝተሓለወ እዩ",
+    "about": "ብዛዕባ መድረኽ",
+    "privacy": "ውልቃውነት"
+  }
+}

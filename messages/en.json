@@ -1,0 +1,41 @@
+{
+  "site": {
+    "name": "Islamic Platform",
+    "tagline": "A beacon of knowledge for the Eritrean community",
+    "description": "An educational da'wah platform bringing together distinguished scholars, in Arabic, Tigrinya, and English"
+  },
+  "nav": {
+    "home": "Home",
+    "library": "Library",
+    "articles": "Articles",
+    "scholars": "Scholars",
+    "qa": "Q&A",
+    "live": "Live Sessions",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Beneficial knowledge, in your language",
+    "heroSubtitle": "Lectures, lessons, articles, and fatwas from distinguished scholars, in Arabic, Tigrinya, and English",
+    "exploreLibrary": "Browse the library",
+    "askQuestion": "Ask a question",
+    "sections": {
+      "readable": { "title": "Reading Library", "desc": "Books, treatises, and pamphlets" },
+      "audio": { "title": "Audio Library", "desc": "Lectures and audio lessons" },
+      "video": { "title": "Video Library", "desc": "Video lessons and clips" },
+      "articles": { "title": "Articles", "desc": "Educational and awareness articles" },
+      "qa": { "title": "Questions & Answers", "desc": "Ask in text or voice" },
+      "live": { "title": "Live Sessions", "desc": "Online knowledge gatherings" }
+    },
+    "scholarsTitle": "Our Scholars",
+    "scholarsSubtitle": "Distinguished scholars supervising the content",
+    "newsletterTitle": "Da'wah Newsletter",
+    "newsletterSubtitle": "Subscribe to receive new lessons, articles, and sessions",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterButton": "Subscribe"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "about": "About",
+    "privacy": "Privacy"
+  }
+}
