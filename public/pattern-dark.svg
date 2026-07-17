@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <rect width="480" height="480" fill="#0E5C63"/>
+  <defs>
+    <g id="star">
+      <path d="M40 8 L48 32 L72 40 L48 48 L40 72 L32 48 L8 40 L32 32 Z" fill="none" stroke="#D9B98A" stroke-width="2" opacity="0.4"/>
+      <circle cx="40" cy="40" r="6" fill="#F7F3EC" opacity="0.25"/>
+    </g>
+  </defs>
+  <g>
+    <use href="#star" x="0" y="0"/><use href="#star" x="80" y="0"/><use href="#star" x="160" y="0"/><use href="#star" x="240" y="0"/><use href="#star" x="320" y="0"/><use href="#star" x="400" y="0"/>
+    <use href="#star" x="40" y="80"/><use href="#star" x="120" y="80"/><use href="#star" x="200" y="80"/><use href="#star" x="280" y="80"/><use href="#star" x="360" y="80"/>
+    <use href="#star" x="0" y="160"/><use href="#star" x="80" y="160"/><use href="#star" x="160" y="160"/><use href="#star" x="240" y="160"/><use href="#star" x="320" y="160"/><use href="#star" x="400" y="160"/>
+    <use href="#star" x="40" y="240"/><use href="#star" x="120" y="240"/><use href="#star" x="200" y="240"/><use href="#star" x="280" y="240"/><use href="#star" x="360" y="240"/>
+    <use href="#star" x="0" y="320"/><use href="#star" x="80" y="320"/><use href="#star" x="160" y="320"/><use href="#star" x="240" y="320"/><use href="#star" x="320" y="320"/><use href="#star" x="400" y="320"/>
+    <use href="#star" x="40" y="400"/><use href="#star" x="120" y="400"/><use href="#star" x="200" y="400"/><use href="#star" x="280" y="400"/><use href="#star" x="360" y="400"/>
+  </g>
+</svg>
