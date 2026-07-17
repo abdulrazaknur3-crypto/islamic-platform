@@ -105,7 +105,8 @@
     "heroImageAlt": "ዘመናዊ ቤተ-መጻሕፍቲ",
     "scholarImageAlt": "ኤርትራዊ ዓሊም ብባህላዊ ክዳን",
     "patternImageAlt": "ኣብ ዕንጨይቲ ዝተቐርጸ እስላማዊ ስርዓተ-ቅርጺ",
-    "studentsImageAlt": "ተመሃሮ ኣብ ሓባራዊ መጽናዕቲ"
+    "studentsImageAlt": "ተመሃሮ ኣብ ሓባራዊ መጽናዕቲ",
+    "readMore": "ተወሳኺ ኣንብብ"
   },
   "footer": {
     "rights": "ኩሉ መሰላት ዝተሓለወ እዩ",
@@ -118,5 +119,9 @@
     "supportDesc": "ፍልጠት ንምዝርጋሕ ኣብ ተልእኾና ደግፉና።",
     "donate": "ወፈያ ሃብ",
     "mission": "ካብ 2024 ጀሚሩ ንዓለምለኻዊ ኤርትራዊ ሕብረተሰብ እሙናት እስላማዊ ምንጭታት ንምቕራብ ወፊና።"
+  },
+  "article": {
+    "backHome": "ናብ መበገሲ ተመለስ",
+    "badge": "ዝተመርጸ ጽሑፍ"
   }
 }

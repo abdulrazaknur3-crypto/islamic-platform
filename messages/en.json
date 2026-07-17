@@ -105,7 +105,8 @@
     "heroImageAlt": "Modern library with warm wooden shelves",
     "scholarImageAlt": "Eritrean scholar in traditional dress",
     "patternImageAlt": "Islamic geometric pattern carved in wood",
-    "studentsImageAlt": "Students in a collaborative study session"
+    "studentsImageAlt": "Students in a collaborative study session",
+    "readMore": "Read more"
   },
   "footer": {
     "rights": "All rights reserved",
@@ -118,5 +119,9 @@
     "supportDesc": "Support us in our mission to spread knowledge.",
     "donate": "Make a Donation",
     "mission": "Dedicated to providing reliable Islamic resources for the global Eritrean community since 2024."
+  },
+  "article": {
+    "backHome": "Back to home",
+    "badge": "Featured Article"
   }
 }

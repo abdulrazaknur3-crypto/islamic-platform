@@ -22,6 +22,7 @@ const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || FALLBACK_ANON;
 export const supabase = url && anonKey ? createClient(url, anonKey) : null;
 
 export type FeaturedArticle = {
+  id: string | null;
   title: LocalizedText;
   excerpt: LocalizedText;
   author: LocalizedText;
@@ -47,13 +48,13 @@ function fmtDate(iso: string | null): string {
 }
 
 export async function getFeaturedArticle(): Promise<FeaturedArticle> {
-  const fallback: FeaturedArticle = { ...demoFeaturedArticle, isDemo: true };
+  const fallback: FeaturedArticle = { id: null, ...demoFeaturedArticle, isDemo: true };
   if (!supabase) return fallback;
   try {
     const { data, error } = await supabase
       .from('articles')
       .select(
-        'title_ar,title_en,title_ti,excerpt_ar,excerpt_en,excerpt_ti,read_minutes,published_at,scholar_id'
+        'id,title_ar,title_en,title_ti,excerpt_ar,excerpt_en,excerpt_ti,read_minutes,published_at,scholar_id'
       )
       .eq('is_published', true)
       .eq('is_featured', true)
@@ -76,6 +77,7 @@ export async function getFeaturedArticle(): Promise<FeaturedArticle> {
     const d = fmtDate(data.published_at);
     const m = data.read_minutes ?? 0;
     return {
+      id: data.id,
       title: { ar: data.title_ar, en: data.title_en, ti: data.title_ti },
       excerpt: {
         ar: data.excerpt_ar ?? '',
@@ -150,5 +152,60 @@ export async function getLatestFatwa(): Promise<FatwaItem> {
     };
   } catch {
     return fallback;
+  }
+}
+
+export type FullArticle = {
+  title: LocalizedText;
+  body: LocalizedText;
+  author: LocalizedText;
+  dateDisplay: LocalizedText;
+} | null;
+
+export async function getArticleById(id: string): Promise<FullArticle> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await supabase
+      .from('articles')
+      .select(
+        'title_ar,title_en,title_ti,body_ar,body_en,body_ti,read_minutes,published_at,scholar_id'
+      )
+      .eq('id', id)
+      .eq('is_published', true)
+      .maybeSingle();
+    if (error || !data) return null;
+
+    let scholar: { name_ar: string; name_en: string; name_ti: string } | null = null;
+    if (data.scholar_id) {
+      const { data: sc } = await supabase
+        .from('scholars')
+        .select('name_ar,name_en,name_ti')
+        .eq('id', data.scholar_id)
+        .maybeSingle();
+      scholar = sc;
+    }
+
+    const d = fmtDate(data.published_at);
+    const m = data.read_minutes ?? 0;
+    return {
+      title: { ar: data.title_ar, en: data.title_en, ti: data.title_ti },
+      body: {
+        ar: data.body_ar ?? '',
+        en: data.body_en ?? '',
+        ti: data.body_ti ?? '',
+      },
+      author: {
+        ar: scholar?.name_ar ?? '',
+        en: scholar?.name_en ?? '',
+        ti: scholar?.name_ti ?? '',
+      },
+      dateDisplay: {
+        ar: `${d} • ${m} دقيقة للقراءة`,
+        en: `${d} • ${m} min read`,
+        ti: `${d} • ${m} ደቓይቕ ንባብ`,
+      },
+    };
+  } catch {
+    return null;
   }
 }

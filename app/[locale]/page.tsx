@@ -116,9 +116,21 @@ export default async function HomePage({ params }: { params: { locale: string } 
                 <p className="mb-6 text-body-md text-on-surface-variant">
                   {pick(article.excerpt, locale)}
                 </p>
+                {article.id && (
+                  <Link
+                    href={`/${locale}/articles/${article.id}`}
+                    className="inline-flex items-center gap-1 text-label-sm font-semibold text-shore-blue hover:text-deep-sea"
+                  >
+                    {t('readMore')}
+                    <span className="material-symbols-outlined text-lg ltr:hidden">arrow_back</span>
+                    <span className="material-symbols-outlined text-lg rtl:hidden">arrow_forward</span>
+                  </Link>
+                )}
               </div>
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-shore-blue/20"></div>
+              <div className="flex items-center gap-4 pt-6">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-shore-blue/20 text-lg font-bold text-deep-sea">
+                  {pick(article.author, locale).replace(/^(الشيخ|Sheikh|ሸኽ)\s*/, '').charAt(0) || '؟'}
+                </span>
                 <div>
                   <p className="text-label-sm text-deep-sea">
                     {pick(article.author, locale)}
