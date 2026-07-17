@@ -27,14 +27,15 @@ export default async function ArticlePage({
         href={`/${locale}`}
         className="inline-flex items-center gap-1 text-label-sm text-shore-blue hover:text-deep-sea"
       >
-        <span className="material-symbols-outlined text-lg ltr:hidden">arrow_forward</span>
-        <span className="material-symbols-outlined text-lg rtl:hidden">arrow_back</span>
+        <span className="material-symbols-outlined text-lg ltr:-scale-x-100">arrow_forward</span>
         {t('backHome')}
       </Link>
 
-      <span className="mt-6 inline-block rounded-full bg-deep-sea/10 px-3 py-1 text-label-sm text-deep-sea">
-        {t('badge')}
-      </span>
+      <div className="mt-6">
+        <span className="inline-block rounded-full bg-deep-sea/10 px-3 py-1 text-label-sm text-deep-sea">
+          {t('badge')}
+        </span>
+      </div>
 
       <h1 className="mt-4 text-3xl font-bold leading-snug text-deep-sea md:text-headline-lg">
         {pick(article.title, locale)}

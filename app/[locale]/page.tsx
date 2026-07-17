@@ -99,8 +99,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
               className="flex items-center gap-1 text-label-sm text-shore-blue hover:underline"
             >
               {t('viewAll')}
-              <span className="material-symbols-outlined ltr:hidden">arrow_back</span>
-              <span className="material-symbols-outlined rtl:hidden">arrow_forward</span>
+              <span className="material-symbols-outlined ltr:-scale-x-100">arrow_back</span>
             </Link>
           </div>
 
@@ -122,11 +121,18 @@ export default async function HomePage({ params }: { params: { locale: string } 
                     className="inline-flex items-center gap-1 text-label-sm font-semibold text-shore-blue hover:text-deep-sea"
                   >
                     {t('readMore')}
-                    <span className="material-symbols-outlined text-lg ltr:hidden">arrow_back</span>
-                    <span className="material-symbols-outlined text-lg rtl:hidden">arrow_forward</span>
+                    <span className="material-symbols-outlined text-lg ltr:-scale-x-100">arrow_back</span>
                   </Link>
                 )}
               </div>
+              {article.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={article.imageUrl}
+                  alt={pick(article.title, locale)}
+                  className="my-6 h-48 w-full rounded-lg object-cover"
+                />
+              )}
               <div className="flex items-center gap-4 pt-6">
                 {article.authorPhoto ? (
                   // eslint-disable-next-line @next/next/no-img-element

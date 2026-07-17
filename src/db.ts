@@ -27,6 +27,7 @@ export type FeaturedArticle = {
   excerpt: LocalizedText;
   author: LocalizedText;
   authorPhoto: string | null;
+  imageUrl: string | null;
   dateDisplay: LocalizedText;
   isDemo: boolean;
 };
@@ -49,13 +50,13 @@ function fmtDate(iso: string | null): string {
 }
 
 export async function getFeaturedArticle(): Promise<FeaturedArticle> {
-  const fallback: FeaturedArticle = { id: null, authorPhoto: null, ...demoFeaturedArticle, isDemo: true };
+  const fallback: FeaturedArticle = { id: null, authorPhoto: null, imageUrl: null, ...demoFeaturedArticle, isDemo: true };
   if (!supabase) return fallback;
   try {
     const { data, error } = await supabase
       .from('articles')
       .select(
-        'id,title_ar,title_en,title_ti,excerpt_ar,excerpt_en,excerpt_ti,read_minutes,published_at,scholar_id'
+        'id,title_ar,title_en,title_ti,excerpt_ar,excerpt_en,excerpt_ti,image_url,read_minutes,published_at,scholar_id'
       )
       .eq('is_published', true)
       .eq('is_featured', true)
@@ -80,6 +81,7 @@ export async function getFeaturedArticle(): Promise<FeaturedArticle> {
     return {
       id: data.id,
       authorPhoto: scholar?.photo_url ?? null,
+      imageUrl: data.image_url ?? null,
       title: { ar: data.title_ar, en: data.title_en, ti: data.title_ti },
       excerpt: {
         ar: data.excerpt_ar ?? '',
