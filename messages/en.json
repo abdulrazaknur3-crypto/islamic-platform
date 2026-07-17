@@ -9,33 +9,56 @@
     "library": "Library",
     "articles": "Articles",
     "scholars": "Scholars",
-    "qa": "Q&A",
-    "live": "Live Sessions",
-    "contact": "Contact"
+    "qa": "Fatwas",
+    "live": "Live",
+    "contact": "Contact",
+    "signIn": "Sign In"
   },
   "home": {
     "heroTitle": "Beneficial knowledge, in your language",
-    "heroSubtitle": "Lectures, lessons, articles, and fatwas from distinguished scholars, in Arabic, Tigrinya, and English",
-    "exploreLibrary": "Browse the library",
-    "askQuestion": "Ask a question",
-    "sections": {
-      "readable": { "title": "Reading Library", "desc": "Books, treatises, and pamphlets" },
-      "audio": { "title": "Audio Library", "desc": "Lectures and audio lessons" },
-      "video": { "title": "Video Library", "desc": "Video lessons and clips" },
-      "articles": { "title": "Articles", "desc": "Educational and awareness articles" },
-      "qa": { "title": "Questions & Answers", "desc": "Ask in text or voice" },
-      "live": { "title": "Live Sessions", "desc": "Online knowledge gatherings" }
+    "heroSubtitle": "Empowering the Eritrean community through authentic Islamic knowledge, scholarly guidance, and interactive learning environments — in Arabic, Tigrinya, and English",
+    "exploreLibrary": "Explore the Library",
+    "askQuestion": "Ask a Question",
+    "live": {
+      "badge": "● LIVE NOW",
+      "title": "Weekly Live Sessions",
+      "desc": "Weekly online knowledge gatherings with our scholars — live questions and authentic answers",
+      "join": "Join the Session"
     },
-    "scholarsTitle": "Our Scholars",
-    "scholarsSubtitle": "Distinguished scholars supervising the content",
+    "audio": {
+      "title": "Latest Audio Lectures",
+      "desc": "Lessons and lectures, fresh as they arrive"
+    },
+    "latestTitle": "Platform Sections",
+    "latestSubtitle": "Articles, fatwas, and lectures — continuously updated",
+    "viewAll": "View All",
+    "sections": {
+      "readable": { "title": "Reading Library", "desc": "Curated books, treatises, and pamphlets", "icon": "menu_book", "href": "library?type=book" },
+      "audio2": { "title": "Audio Library", "desc": "Audio lectures and lessons from our scholars", "icon": "headphones", "href": "library?type=audio" },
+      "video": { "title": "Video Library", "desc": "Video lessons and lectures", "icon": "smart_display", "href": "library?type=video" },
+      "articles": { "title": "Articles", "desc": "Reviewed educational and awareness articles", "icon": "edit_note", "href": "articles" },
+      "qa": { "title": "Fatwas & Questions", "desc": "Ask in text or voice and receive authentic answers", "icon": "contact_support", "href": "qa" },
+      "live2": { "title": "Live Broadcast", "desc": "Live online knowledge sessions", "icon": "podcasts", "href": "live" }
+    },
+    "circles": {
+      "title": "Virtual Circles",
+      "desc": "Join our interactive virtual circles where students of knowledge gather weekly to study classical texts and contemporary issues in a supportive community environment",
+      "community": "Active Community",
+      "communityDesc": "Connect with hundreds of students from across the globe",
+      "scholars": "Certified Scholars",
+      "scholarsDesc": "All circles are led by qualified teachers and scholars",
+      "quote": "\"Knowledge is the light that guides our path\""
+    },
     "newsletterTitle": "Da'wah Newsletter",
-    "newsletterSubtitle": "Subscribe to receive new lessons, articles, and sessions",
-    "newsletterPlaceholder": "Your email address",
-    "newsletterButton": "Subscribe"
+    "newsletterSubtitle": "Subscribe to our weekly newsletter for the latest lectures, live sessions, and scholarly articles delivered to your inbox",
+    "newsletterPlaceholder": "Enter your email address",
+    "newsletterButton": "Subscribe Now"
   },
   "footer": {
     "rights": "All rights reserved",
-    "about": "About",
-    "privacy": "Privacy"
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "resources": "Resources",
+    "platform": "Platform"
   }
 }

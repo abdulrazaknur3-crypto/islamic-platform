@@ -16,15 +16,15 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 rounded-full bg-white/10 p-1">
+    <div className="flex items-center gap-1 rounded-full border border-sand/60 bg-white p-1">
       {locales.map((l) => (
         <button
           key={l}
           onClick={() => switchTo(l)}
-          className={`rounded-full px-3 py-1 text-sm transition-colors ${
+          className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
             l === locale
-              ? 'bg-sand text-primary font-medium'
-              : 'text-white/80 hover:bg-white/10'
+              ? 'bg-primary text-white'
+              : 'text-ink-soft hover:bg-cream'
           }`}
         >
           {localeNames[l]}

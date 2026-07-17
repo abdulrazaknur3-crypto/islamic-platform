@@ -2,40 +2,63 @@
   "site": {
     "name": "ኢስላሚያ መድረኽ",
     "tagline": "ንኤርትራዊ ሕብረተሰብ ብርሃን ፍልጠት",
-    "description": "ብዓረብኛ፣ ትግርኛን እንግሊዝኛን ዝቐርብ ናይ ዳዕዋን ትምህርትን መድረኽ"
+    "description": "ብዓረብኛ፣ ትግርኛን እንግሊዝኛን ዝቐርብ ናይ ዳዕዋን ትምህርትን መድረኽ፣ ብሉጻት ዓለምቲ ዝሓቖፈ"
   },
   "nav": {
     "home": "መበገሲ",
     "library": "ቤተ-መጻሕፍቲ",
     "articles": "ጽሑፋት",
     "scholars": "ዓለምቲ",
-    "qa": "ሕቶን መልስን",
-    "live": "ቀጥታዊ ኣኼባታት",
-    "contact": "ተወከሱና"
+    "qa": "ፈትዋታት",
+    "live": "ቀጥታዊ ፈነወ",
+    "contact": "ተወከሱና",
+    "signIn": "እቶ"
   },
   "home": {
     "heroTitle": "ጠቓሚ ፍልጠት.. ብቋንቋኻ",
-    "heroSubtitle": "መደረታት፣ ትምህርታት፣ ጽሑፋትን ፈትዋታትን ካብ ብሉጻት ዓለምቲ፣ ብዓረብኛ፣ ትግርኛን እንግሊዝኛን",
+    "heroSubtitle": "ንኤርትራዊ ሕብረተሰብ ብቕኑዕ እስላማዊ ፍልጠት፣ ዓሊማዊ መምርሒን ተሳታፋይ ናይ ትምህርቲ ሃዋህውን ምብቃዕ — ብዓረብኛ፣ ትግርኛን እንግሊዝኛን",
     "exploreLibrary": "ቤተ-መጻሕፍቲ ርአ",
     "askQuestion": "ሕቶኻ ኣቕርብ",
-    "sections": {
-      "readable": { "title": "ዝንበብ ቤተ-መጻሕፍቲ", "desc": "መጻሕፍትን ጽሑፋትን" },
-      "audio": { "title": "ድምጻዊ ቤተ-መጻሕፍቲ", "desc": "ድምጻዊ መደረታትን ትምህርታትን" },
-      "video": { "title": "ቪድዮ ቤተ-መጻሕፍቲ", "desc": "ቪድዮ ትምህርታት" },
-      "articles": { "title": "ጽሑፋት", "desc": "ኣስተምህሮኣዊ ጽሑፋት" },
-      "qa": { "title": "ሕቶን መልስን", "desc": "ብጽሑፍ ወይ ብድምጺ ሕተት" },
-      "live": { "title": "ቀጥታዊ ኣኼባታት", "desc": "ብኢንተርነት ዝካየድ ኣኼባታት ፍልጠት" }
+    "live": {
+      "badge": "● ሕጂ ቀጥታ",
+      "title": "ሰሙናዊ ቀጥታዊ ኣኼባታት",
+      "desc": "ምስ ዓለምትና ብኢንተርነት ዝካየድ ሰሙናዊ ኣኼባታት ፍልጠት — ቀጥታዊ ሕቶታትን ቅኑዓት መልስታትን",
+      "join": "ናብ ኣኼባ እቶ"
     },
-    "scholarsTitle": "ዓለምቲ መድረኽና",
-    "scholarsSubtitle": "ንትሕዝቶ ዝከታተሉ ብሉጻት ዓለምቲ",
+    "audio": {
+      "title": "ሓደስቲ ድምጻዊ መደረታት",
+      "desc": "ትምህርታትን መደረታትን ቀጥታ ዝበጽሓካ"
+    },
+    "latestTitle": "ክፍልታት መድረኽ",
+    "latestSubtitle": "ጽሑፋት፣ ፈትዋታትን መደረታትን ብቐጻሊ ዝሕደሱ",
+    "viewAll": "ኩሉ ርአ",
+    "sections": {
+      "readable": { "title": "ዝንበብ ቤተ-መጻሕፍቲ", "desc": "ዝተመርጹ መጻሕፍትን ጽሑፋትን", "icon": "menu_book", "href": "library?type=book" },
+      "audio2": { "title": "ድምጻዊ ቤተ-መጻሕፍቲ", "desc": "ካብ ዓለምትና ድምጻዊ መደረታትን ትምህርታትን", "icon": "headphones", "href": "library?type=audio" },
+      "video": { "title": "ቪድዮ ቤተ-መጻሕፍቲ", "desc": "ቪድዮ ትምህርታትን መደረታትን", "icon": "smart_display", "href": "library?type=video" },
+      "articles": { "title": "ጽሑፋት", "desc": "ዝተመርመሩ ኣስተምህሮኣዊ ጽሑፋት", "icon": "edit_note", "href": "articles" },
+      "qa": { "title": "ፈትዋታትን ሕቶታትን", "desc": "ብጽሑፍ ወይ ብድምጺ ሕተት፣ ቅኑዕ መልሲ ክበጽሓካ", "icon": "contact_support", "href": "qa" },
+      "live2": { "title": "ቀጥታዊ ፈነወ", "desc": "ብኢንተርነት ቀጥታዊ ኣኼባታት ፍልጠት", "icon": "podcasts", "href": "live" }
+    },
+    "circles": {
+      "title": "ምናባዊ ሓልቓታት",
+      "desc": "ተመሃሮ ፍልጠት ንጥንታውያን ጽሑፋትን ዘመናውያን ጉዳያትን ንምጽናዕ ሰሙናዊ ዝእከቡሉ ተሳታፋይ ምናባዊ ሓልቓታትና ተጸንበር",
+      "community": "ንጡፍ ሕብረተሰብ",
+      "communityDesc": "ምስ ኣማኢት ተመሃሮ ካብ ኩሉ ዓለም ተራኸብ",
+      "scholars": "ዝተመስከረሎም ዓለምቲ",
+      "scholarsDesc": "ኩሎም ሓልቓታት ብብቑዓት መምህራንን ዓለምትን ይምርሑ",
+      "quote": "\"ፍልጠት ንመገድና ዝመርሕ ብርሃን እዩ\""
+    },
     "newsletterTitle": "ናይ ዳዕዋ ጋዜጣ",
-    "newsletterSubtitle": "ሓደስቲ ትምህርታትን ጽሑፋትን ንኽበጽሓካ ተመዝገብ",
-    "newsletterPlaceholder": "ኢመይል ኣድራሻኻ",
-    "newsletterButton": "ተመዝገብ"
+    "newsletterSubtitle": "ሓደስቲ መደረታት፣ ቀጥታዊ ኣኼባታትን ዓሊማዊ ጽሑፋትን ናብ ኢመይልካ ንኽበጽሓካ ኣብ ሰሙናዊ ጋዜጣና ተመዝገብ",
+    "newsletterPlaceholder": "ኢመይል ኣድራሻኻ ኣእቱ",
+    "newsletterButton": "ሕጂ ተመዝገብ"
   },
   "footer": {
     "rights": "ኩሉ መሰላት ዝተሓለወ እዩ",
-    "about": "ብዛዕባ መድረኽ",
-    "privacy": "ውልቃውነት"
+    "about": "ብዛዕባና",
+    "privacy": "ውልቃውነት ፖሊሲ",
+    "resources": "ምንጭታት",
+    "platform": "መድረኽ"
   }
 }
