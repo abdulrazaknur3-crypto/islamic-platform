@@ -3,11 +3,33 @@
 @tailwind utilities;
 
 body {
-  background-color: #FDF9F2;
-  color: #11212D;
+  background-color: #F7F3EC;
+  color: #1C1C18;
+  scroll-behavior: smooth;
 }
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
+}
+
+.live-pulse {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+.glass-nav {
+  background: rgba(253, 249, 242, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.bento-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(14, 92, 99, 0.15);
 }

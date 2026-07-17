@@ -12,7 +12,11 @@
     "qa": "الفتاوى",
     "live": "البث المباشر",
     "contact": "اتصل بنا",
-    "signIn": "تسجيل الدخول"
+    "signIn": "تسجيل الدخول",
+    "training": "التدريب",
+    "circles": "الحلقات",
+    "searchPlaceholder": "ابحث عن المعرفة...",
+    "account": "الحساب"
   },
   "home": {
     "heroTitle": "علمٌ نافع.. بلسانك",
@@ -29,16 +33,46 @@
       "title": "أحدث المحاضرات الصوتية",
       "desc": "دروس ومحاضرات تصلك أولًا بأول"
     },
-    "latestTitle": "أقسام المنصة",
+    "latestTitle": "مقالات وفتاوى ومحاضرات صوتية تم تحديثها مؤخراً.",
     "latestSubtitle": "مقالات وفتاوى ومحاضرات يتم تحديثها باستمرار",
     "viewAll": "عرض الكل",
     "sections": {
-      "readable": { "title": "المكتبة المقروءة", "desc": "كتب ورسائل ومطويات دعوية مختارة", "icon": "menu_book", "href": "library?type=book" },
-      "audio2": { "title": "المكتبة الصوتية", "desc": "محاضرات ودروس صوتية من المشايخ", "icon": "headphones", "href": "library?type=audio" },
-      "video": { "title": "المكتبة المرئية", "desc": "مقاطع ومحاضرات مرئية", "icon": "smart_display", "href": "library?type=video" },
-      "articles": { "title": "المقالات", "desc": "مقالات توعوية وتثقيفية محكمة", "icon": "edit_note", "href": "articles" },
-      "qa": { "title": "الفتاوى والأسئلة", "desc": "اسأل نصيًا أو صوتيًا وتصلك الإجابة الموثوقة", "icon": "contact_support", "href": "qa" },
-      "live2": { "title": "البث المباشر", "desc": "لقاءات علمية مباشرة عبر الإنترنت", "icon": "podcasts", "href": "live" }
+      "readable": {
+        "title": "المكتبة المقروءة",
+        "desc": "كتب ورسائل ومطويات دعوية مختارة",
+        "icon": "menu_book",
+        "href": "library?type=book"
+      },
+      "audio2": {
+        "title": "المكتبة الصوتية",
+        "desc": "محاضرات ودروس صوتية من المشايخ",
+        "icon": "headphones",
+        "href": "library?type=audio"
+      },
+      "video": {
+        "title": "المكتبة المرئية",
+        "desc": "مقاطع ومحاضرات مرئية",
+        "icon": "smart_display",
+        "href": "library?type=video"
+      },
+      "articles": {
+        "title": "المقالات",
+        "desc": "مقالات توعوية وتثقيفية محكمة",
+        "icon": "edit_note",
+        "href": "articles"
+      },
+      "qa": {
+        "title": "الفتاوى والأسئلة",
+        "desc": "اسأل نصيًا أو صوتيًا وتصلك الإجابة الموثوقة",
+        "icon": "contact_support",
+        "href": "qa"
+      },
+      "live2": {
+        "title": "البث المباشر",
+        "desc": "لقاءات علمية مباشرة عبر الإنترنت",
+        "icon": "podcasts",
+        "href": "live"
+      }
     },
     "circles": {
       "title": "الحلقات الافتراضية",
@@ -49,16 +83,40 @@
       "scholarsDesc": "جميع الحلقات يقودها معلمون وعلماء مؤهلون",
       "quote": "\"العلم هو النور الذي يرشد طريقنا\""
     },
-    "newsletterTitle": "النشرة الدعوية",
+    "newsletterTitle": "ابقَ على اطلاع",
     "newsletterSubtitle": "اشترك في نشرتنا الأسبوعية لتصلك أحدث المحاضرات والجلسات المباشرة والمقالات العلمية إلى بريدك",
     "newsletterPlaceholder": "أدخل عنوان بريدك الإلكتروني",
-    "newsletterButton": "اشترك الآن"
+    "newsletterButton": "اشترك الآن",
+    "brandLine": "المنصة الإسلامية",
+    "brandTrilingual": "Islamic Platform / ኢስላሚያ መድረኽ",
+    "exploreCourses": "استكشف الدورات",
+    "readLibrary": "اقرأ المكتبة",
+    "latestLabel": "أحدث المعارف",
+    "featuredBadge": "مقال مختار",
+    "newAudioBadge": "صوت جديد",
+    "minRead": "دقيقة للقراءة",
+    "play": "تشغيل",
+    "duration": "المدة",
+    "readAnswer": "اقرأ الإجابة",
+    "trainingPortal": "بوابة التدريب",
+    "trainingDesc": "مناهج منظمة لجميع المستويات.",
+    "enterPlatform": "دخول المنصة",
+    "newsletterPrivacy": "نحن نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت.",
+    "heroImageAlt": "مكتبة حديثة بأرفف خشبية دافئة",
+    "scholarImageAlt": "عالم إريتري بالزي التقليدي",
+    "patternImageAlt": "نمط هندسي إسلامي منحوت في الخشب",
+    "studentsImageAlt": "طلاب في جلسة دراسية تعاونية"
   },
   "footer": {
     "rights": "جميع الحقوق محفوظة",
     "about": "عن المنصة",
     "privacy": "سياسة الخصوصية",
     "resources": "المصادر",
-    "platform": "المنصة"
+    "platform": "المنصة",
+    "terms": "شروط الخدمة",
+    "support": "تواصل معنا",
+    "supportDesc": "ادعمنا في مهمتنا لنشر المعرفة.",
+    "donate": "قدم تبرعاً",
+    "mission": "نحن مخلصون لتوفير موارد إسلامية موثوقة للمجتمع الإريتري العالمي منذ عام 2024."
   }
 }

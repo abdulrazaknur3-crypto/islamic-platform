@@ -12,7 +12,11 @@
     "qa": "ፈትዋታት",
     "live": "ቀጥታዊ ፈነወ",
     "contact": "ተወከሱና",
-    "signIn": "እቶ"
+    "signIn": "እቶ",
+    "training": "ስልጠና",
+    "circles": "ሓልቓታት",
+    "searchPlaceholder": "ፍልጠት ድለ...",
+    "account": "ሕሳብ"
   },
   "home": {
     "heroTitle": "ጠቓሚ ፍልጠት.. ብቋንቋኻ",
@@ -29,16 +33,46 @@
       "title": "ሓደስቲ ድምጻዊ መደረታት",
       "desc": "ትምህርታትን መደረታትን ቀጥታ ዝበጽሓካ"
     },
-    "latestTitle": "ክፍልታት መድረኽ",
+    "latestTitle": "ሓደስቲ ጽሑፋት፣ ፈትዋታትን ድምጻዊ መደረታትን።",
     "latestSubtitle": "ጽሑፋት፣ ፈትዋታትን መደረታትን ብቐጻሊ ዝሕደሱ",
     "viewAll": "ኩሉ ርአ",
     "sections": {
-      "readable": { "title": "ዝንበብ ቤተ-መጻሕፍቲ", "desc": "ዝተመርጹ መጻሕፍትን ጽሑፋትን", "icon": "menu_book", "href": "library?type=book" },
-      "audio2": { "title": "ድምጻዊ ቤተ-መጻሕፍቲ", "desc": "ካብ ዓለምትና ድምጻዊ መደረታትን ትምህርታትን", "icon": "headphones", "href": "library?type=audio" },
-      "video": { "title": "ቪድዮ ቤተ-መጻሕፍቲ", "desc": "ቪድዮ ትምህርታትን መደረታትን", "icon": "smart_display", "href": "library?type=video" },
-      "articles": { "title": "ጽሑፋት", "desc": "ዝተመርመሩ ኣስተምህሮኣዊ ጽሑፋት", "icon": "edit_note", "href": "articles" },
-      "qa": { "title": "ፈትዋታትን ሕቶታትን", "desc": "ብጽሑፍ ወይ ብድምጺ ሕተት፣ ቅኑዕ መልሲ ክበጽሓካ", "icon": "contact_support", "href": "qa" },
-      "live2": { "title": "ቀጥታዊ ፈነወ", "desc": "ብኢንተርነት ቀጥታዊ ኣኼባታት ፍልጠት", "icon": "podcasts", "href": "live" }
+      "readable": {
+        "title": "ዝንበብ ቤተ-መጻሕፍቲ",
+        "desc": "ዝተመርጹ መጻሕፍትን ጽሑፋትን",
+        "icon": "menu_book",
+        "href": "library?type=book"
+      },
+      "audio2": {
+        "title": "ድምጻዊ ቤተ-መጻሕፍቲ",
+        "desc": "ካብ ዓለምትና ድምጻዊ መደረታትን ትምህርታትን",
+        "icon": "headphones",
+        "href": "library?type=audio"
+      },
+      "video": {
+        "title": "ቪድዮ ቤተ-መጻሕፍቲ",
+        "desc": "ቪድዮ ትምህርታትን መደረታትን",
+        "icon": "smart_display",
+        "href": "library?type=video"
+      },
+      "articles": {
+        "title": "ጽሑፋት",
+        "desc": "ዝተመርመሩ ኣስተምህሮኣዊ ጽሑፋት",
+        "icon": "edit_note",
+        "href": "articles"
+      },
+      "qa": {
+        "title": "ፈትዋታትን ሕቶታትን",
+        "desc": "ብጽሑፍ ወይ ብድምጺ ሕተት፣ ቅኑዕ መልሲ ክበጽሓካ",
+        "icon": "contact_support",
+        "href": "qa"
+      },
+      "live2": {
+        "title": "ቀጥታዊ ፈነወ",
+        "desc": "ብኢንተርነት ቀጥታዊ ኣኼባታት ፍልጠት",
+        "icon": "podcasts",
+        "href": "live"
+      }
     },
     "circles": {
       "title": "ምናባዊ ሓልቓታት",
@@ -49,16 +83,40 @@
       "scholarsDesc": "ኩሎም ሓልቓታት ብብቑዓት መምህራንን ዓለምትን ይምርሑ",
       "quote": "\"ፍልጠት ንመገድና ዝመርሕ ብርሃን እዩ\""
     },
-    "newsletterTitle": "ናይ ዳዕዋ ጋዜጣ",
+    "newsletterTitle": "ተኸታተል",
     "newsletterSubtitle": "ሓደስቲ መደረታት፣ ቀጥታዊ ኣኼባታትን ዓሊማዊ ጽሑፋትን ናብ ኢመይልካ ንኽበጽሓካ ኣብ ሰሙናዊ ጋዜጣና ተመዝገብ",
     "newsletterPlaceholder": "ኢመይል ኣድራሻኻ ኣእቱ",
-    "newsletterButton": "ሕጂ ተመዝገብ"
+    "newsletterButton": "ሕጂ ተመዝገብ",
+    "brandLine": "ኢስላሚያ መድረኽ",
+    "brandTrilingual": "المنصة الإسلامية / Islamic Platform",
+    "exploreCourses": "ኮርሳት ርአ",
+    "readLibrary": "ቤተ-መጻሕፍቲ ኣንብብ",
+    "latestLabel": "ሓደስቲ ፍልጠታት",
+    "featuredBadge": "ዝተመርጸ ጽሑፍ",
+    "newAudioBadge": "ሓድሽ ድምጺ",
+    "minRead": "ደቓይቕ ንባብ",
+    "play": "ኣጻውት",
+    "duration": "ንውሓት",
+    "readAnswer": "መልሲ ኣንብብ",
+    "trainingPortal": "ናይ ስልጠና ደገ",
+    "trainingDesc": "ንኹሉ ደረጃታት ዝተወደበ ስርዓተ-ትምህርቲ።",
+    "enterPlatform": "ናብ መድረኽ እቶ",
+    "newsletterPrivacy": "ውልቃውነትካ ነኽብር። ኣብ ዝኾነ ግዜ ክትወጽእ ትኽእል።",
+    "heroImageAlt": "ዘመናዊ ቤተ-መጻሕፍቲ",
+    "scholarImageAlt": "ኤርትራዊ ዓሊም ብባህላዊ ክዳን",
+    "patternImageAlt": "ኣብ ዕንጨይቲ ዝተቐርጸ እስላማዊ ስርዓተ-ቅርጺ",
+    "studentsImageAlt": "ተመሃሮ ኣብ ሓባራዊ መጽናዕቲ"
   },
   "footer": {
     "rights": "ኩሉ መሰላት ዝተሓለወ እዩ",
     "about": "ብዛዕባና",
     "privacy": "ውልቃውነት ፖሊሲ",
     "resources": "ምንጭታት",
-    "platform": "መድረኽ"
+    "platform": "መድረኽ",
+    "terms": "ውዕል ኣገልግሎት",
+    "support": "ተራኸቡና",
+    "supportDesc": "ፍልጠት ንምዝርጋሕ ኣብ ተልእኾና ደግፉና።",
+    "donate": "ወፈያ ሃብ",
+    "mission": "ካብ 2024 ጀሚሩ ንዓለምለኻዊ ኤርትራዊ ሕብረተሰብ እሙናት እስላማዊ ምንጭታት ንምቕራብ ወፊና።"
   }
 }
