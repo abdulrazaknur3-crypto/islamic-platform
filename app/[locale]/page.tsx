@@ -128,9 +128,18 @@ export default async function HomePage({ params }: { params: { locale: string } 
                 )}
               </div>
               <div className="flex items-center gap-4 pt-6">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-shore-blue/20 text-lg font-bold text-deep-sea">
-                  {pick(article.author, locale).replace(/^(الشيخ|Sheikh|ሸኽ)\s*/, '').charAt(0) || '؟'}
-                </span>
+                {article.authorPhoto ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={article.authorPhoto}
+                    alt={pick(article.author, locale)}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                ) : (
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-shore-blue/20 text-lg font-bold text-deep-sea">
+                    {pick(article.author, locale).replace(/^(الشيخ|Sheikh|ሸኽ)\s*/, '').charAt(0) || '؟'}
+                  </span>
+                )}
                 <div>
                   <p className="text-label-sm text-deep-sea">
                     {pick(article.author, locale)}

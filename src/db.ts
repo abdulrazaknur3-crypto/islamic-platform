@@ -26,6 +26,7 @@ export type FeaturedArticle = {
   title: LocalizedText;
   excerpt: LocalizedText;
   author: LocalizedText;
+  authorPhoto: string | null;
   dateDisplay: LocalizedText;
   isDemo: boolean;
 };
@@ -48,7 +49,7 @@ function fmtDate(iso: string | null): string {
 }
 
 export async function getFeaturedArticle(): Promise<FeaturedArticle> {
-  const fallback: FeaturedArticle = { id: null, ...demoFeaturedArticle, isDemo: true };
+  const fallback: FeaturedArticle = { id: null, authorPhoto: null, ...demoFeaturedArticle, isDemo: true };
   if (!supabase) return fallback;
   try {
     const { data, error } = await supabase
@@ -64,11 +65,11 @@ export async function getFeaturedArticle(): Promise<FeaturedArticle> {
     if (error || !data) return fallback;
 
     // جلب اسم الشيخ في استعلام منفصل (أمتن من الربط المدمج)
-    let scholar: { name_ar: string; name_en: string; name_ti: string } | null = null;
+    let scholar: { name_ar: string; name_en: string; name_ti: string; photo_url: string | null } | null = null;
     if (data.scholar_id) {
       const { data: sc } = await supabase
         .from('scholars')
-        .select('name_ar,name_en,name_ti')
+        .select('name_ar,name_en,name_ti,photo_url')
         .eq('id', data.scholar_id)
         .maybeSingle();
       scholar = sc;
@@ -78,6 +79,7 @@ export async function getFeaturedArticle(): Promise<FeaturedArticle> {
     const m = data.read_minutes ?? 0;
     return {
       id: data.id,
+      authorPhoto: scholar?.photo_url ?? null,
       title: { ar: data.title_ar, en: data.title_en, ti: data.title_ti },
       excerpt: {
         ar: data.excerpt_ar ?? '',
