@@ -20,9 +20,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
   return (
     <div className="pt-20">
-      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-background">
-        <div className="relative z-10 mx-auto grid max-w-container-max grid-cols-1 items-center gap-16 px-4 py-12 lg:grid-cols-2 lg:px-12">
-          <div className="space-y-8">
+      <section className="relative flex min-h-0 items-center overflow-hidden bg-background">
+        <div className="relative z-10 mx-auto grid max-w-container-max grid-cols-1 items-center gap-12 px-4 py-8 lg:grid-cols-2 lg:px-12">
+          <div className="space-y-6">
             <Image
               src="/logo-icon.png"
               alt={t('brandLine')}
@@ -88,9 +88,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
-      <section className="bg-white py-24">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-container-max px-4 lg:px-12">
-          <div className="mb-12 flex items-end justify-between">
+          <div className="mb-8 flex items-end justify-between">
             <div>
               <h2 className="mb-2 text-headline-lg text-deep-sea">{t('latestLabel')}</h2>
               <p className="text-body-md text-earth-brown">{t('latestTitle')}</p>
@@ -189,9 +189,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
-      <section className="bg-parchment py-24">
+      <section className="bg-parchment py-14">
         <div className="mx-auto max-w-container-max px-4 lg:px-12">
-          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <h2 className="mb-6 text-headline-lg text-deep-sea">{t('circles.title')}</h2>
               <p className="mb-8 text-body-lg text-on-surface-variant">{t('circles.desc')}</p>
@@ -261,9 +261,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
-      <section className="bg-deep-sea py-24">
+      <section className="bg-deep-sea py-14">
         <div className="mx-auto max-w-container-max px-4 text-center lg:px-12">
-          <div className="mx-auto max-w-2xl space-y-8">
+          <div className="mx-auto max-w-2xl space-y-6">
             <span className="material-symbols-outlined text-[48px] text-dune-gold">mail</span>
             <h2 className="text-3xl font-bold text-white md:text-display-lg">
               {t('newsletterTitle')}

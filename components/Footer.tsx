@@ -23,7 +23,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full border-t border-outline-variant bg-parchment py-12">
+    <footer className="w-full border-t border-outline-variant bg-parchment py-10">
       <div className="mx-auto grid max-w-container-max grid-cols-1 gap-6 px-4 md:grid-cols-3 lg:px-12">
         <div className="space-y-4">
           <span className="text-headline-lg text-deep-sea">{ts('name')}</span>
@@ -83,7 +83,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="mx-auto mt-12 max-w-container-max border-t border-outline-variant/30 px-4 pt-8 text-center lg:px-12">
+      <div className="mx-auto mt-8 max-w-container-max border-t border-outline-variant/30 px-4 pt-8 text-center lg:px-12">
         <p className="text-label-sm text-earth-brown opacity-60">
           © {year} {ts('name')} — {t('rights')}
         </p>
