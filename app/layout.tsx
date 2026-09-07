@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 import './globals.css'
+import './reference.css'
 
 const ibmArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic', 'latin'],
@@ -10,9 +11,9 @@ const ibmArabic = IBM_Plex_Sans_Arabic({
 })
 
 export const metadata: Metadata = {
+  applicationName: 'Injazak',
   title: 'إنجازك | خدمات وتعقيب المعاملات',
-  description:
-    'خدمات متابعة وتعقيب المعاملات للأفراد والمنشآت مع متابعة واضحة عبر واتساب.',
+  description: 'خدمات متابعة وتعقيب المعاملات للأفراد والمنشآت مع متابعة واضحة عبر واتساب.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
 }
 
