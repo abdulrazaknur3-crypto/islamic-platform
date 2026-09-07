@@ -1,5 +1,6 @@
 'use client'
 
+/* eslint-disable @next/next/no-img-element */
 import { useMemo, useState } from 'react'
 import {
   BookOpenCheck,
@@ -24,14 +25,10 @@ import {
   Star,
   Users,
   Zap,
-  Check,
-  FileCheck2,
 } from 'lucide-react'
 import { BrandMark } from '@/components/brand-mark'
-import { SaudiSkyline } from '@/components/saudi-skyline'
 import { NewsTicker } from '@/components/news-ticker'
 import { RequestModal } from '@/components/request-modal'
-import { WhatsAppFab } from '@/components/whatsapp-fab'
 import { processSteps, services, testimonials, TIKTOK_URL, WHATSAPP_NUMBER } from '@/lib/data'
 import type { NewsItem } from '@/lib/types'
 
@@ -74,19 +71,10 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
   }
 
   return (
-    <main>
+    <main className="reference-page">
       <section className="seasonal-banner" aria-label="موسم اليوم الوطني السعودي 96">
-        <div className="seasonal-banner__flag" aria-hidden="true" />
-        <SaudiSkyline className="seasonal-banner__skyline" />
-        <div className="container-shell seasonal-banner__inner">
-          <div className="seasonal-banner__brand"><BrandMark inverse /></div>
-          <div className="seasonal-banner__message">
-            <div className="seasonal-banner__script">معًا.. في كل خطوة</div>
-            <div className="seasonal-banner__copy">كل معاملة نخدمها.. هي خدمة لوطن أعظم</div>
-          </div>
-          <div className="seasonal-banner__year"><strong>96</strong><span>عامًا من المجد والإنجاز<br />ووطنًا مصدر فخرنا</span></div>
-          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer" className="seasonal-banner__phone"><MessageCircle />0590097275</a>
-        </div>
+        <img src="/reference/seasonal-banner.svg" alt="موسم اليوم الوطني السعودي 96" className="seasonal-banner__image" draggable={false} />
+        <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer" className="seasonal-banner__link" aria-label="تواصل عبر واتساب" />
       </section>
 
       <NewsTicker items={news} />
@@ -111,23 +99,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
             </div>
           </div>
           <div className="reference-hero__visual" aria-hidden="true">
-            <div className="hero-art">
-              <div className="hero-art__poster"><span>خدمة وطن</span><strong>لأجل الوطن</strong><div>96</div></div>
-              <div className="hero-art__papers"><i /><i /><i /><b>إنجازك</b><em>تم الإنجاز</em></div>
-              <div className="hero-art__laptop">
-                <div className="hero-art__screen">
-                  <div className="hero-art__screen-head"><small>منصة إنجازك</small><strong>معاملاتك بكل سهولة</strong></div>
-                  {['تقديم الطلب','متابعة الإجراءات','استلام النتيجة'].map((text) => <div className="hero-art__row" key={text}><span>{text}</span><Check /></div>)}
-                </div>
-              </div>
-              <div className="hero-art__phone">
-                <div className="hero-art__speaker" />
-                <strong>إنجازك</strong>
-                {['أسرع','أسهل','أكثر أمانًا','معك دائمًا'].map((text) => <div className="hero-art__phone-row" key={text}><Check />{text}</div>)}
-                <div className="hero-art__phone-chat"><MessageCircle /></div>
-              </div>
-              <div className="hero-art__stamp"><FileCheck2 /> تم الإنجاز</div>
-            </div>
+            <img src="/reference/hero-visual.svg" alt="" className="reference-hero__image" draggable={false} />
           </div>
         </div>
       </section>
@@ -152,7 +124,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
             <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="ابحث عن معاملتك أو الخدمة المطلوبة ..." aria-label="ابحث عن معاملة" />
             <span className="reference-search__example">مثال: نقل كفالة، إصدار إقامة، تجديد رخصة القيادة، فتح سجل تجاري ...</span>
           </label>
-          {!filtered.length && <div className="mt-5 rounded-xl border border-[#ead8ad] bg-[#fff8e8] p-4 text-center text-sm text-[#6e541e]">لم نعثر على اسم الخدمة. أرسل تفاصيل معاملتك عبر واتساب وسنحدد لك الإجراء المناسب.</div>}
+          {!filtered.length && <div className="reference-empty">لم نعثر على اسم الخدمة. أرسل تفاصيل معاملتك عبر واتساب وسنحدد لك الإجراء المناسب.</div>}
         </div>
       </section>
 
@@ -178,15 +150,23 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
       <section id="updates" className="reference-section reference-updates">
         <div className="container-shell">
           <div className="reference-updates__top">
-            <span className="reference-source-button">عرض جميع الأخبار</span>
+            <a href="#updates" className="reference-source-button">عرض جميع الأخبار</a>
             <div className="reference-heading reference-heading--compact"><span className="reference-heading__line" /><h2>آخر تحديثات الجهات الحكومية</h2><span className="reference-heading__line" /></div>
-            <span className="reference-source-button">شاهد المصادر الرسمية</span>
+            <a href="#updates" className="reference-source-button">شاهد المصادر الرسمية</a>
           </div>
           <div className="reference-news-grid">
             {news.slice(0, 4).map((item, index) => (
               <a key={item.id} href={item.sourceUrl} target="_blank" rel="noreferrer" className="reference-news-card">
-                <div className={`reference-news-card__visual reference-news-card__visual--${index + 1}`}><span>{item.category}</span><ExternalLink className="h-4 w-4" /></div>
-                <div className="reference-news-card__body"><div className="reference-news-card__meta">{item.sourceName}</div><h3>{item.title}</h3><div className="reference-news-card__source">المصدر الرسمي <ExternalLink className="h-3.5 w-3.5" /></div></div>
+                <div className="reference-news-card__visual">
+                  <img src={`/reference/news-thumb-${index + 1}.svg`} alt="" draggable={false} />
+                  <span>{item.category}</span>
+                  <ExternalLink className="h-4 w-4" />
+                </div>
+                <div className="reference-news-card__body">
+                  <div className="reference-news-card__meta">{item.sourceName}</div>
+                  <h3>{item.title}</h3>
+                  <div className="reference-news-card__source">المصدر الرسمي <ExternalLink className="h-3.5 w-3.5" /></div>
+                </div>
               </a>
             ))}
           </div>
@@ -203,7 +183,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
                 <Quote className="reference-testimonial__quote" />
                 <p>{item.quote}</p>
                 <div className="reference-testimonial__bottom">
-                  <div className={`reference-avatar avatar--${index + 1}`} aria-hidden="true">{item.name.charAt(0)}</div>
+                  <img src={`/reference/avatar-${index + 1}.svg`} alt="" className="reference-avatar" draggable={false} />
                   <div className="reference-testimonial__person"><strong>{item.name}</strong><span>{item.role}</span></div>
                   <div className="reference-testimonial__stars" aria-label="5 من 5">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="fill-current" />)}</div>
                 </div>
@@ -214,8 +194,9 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
       </section>
 
       <section className="reference-closing">
-        <div className="reference-closing__city" aria-hidden="true" />
+        <img src="/reference/cta-visual.svg" alt="" className="reference-closing__visual" draggable={false} />
         <div className="container-shell reference-closing__inner">
+          <div className="reference-closing__script">معًا.. لنعمر وطنًا أعظم</div>
           <div className="reference-closing__copy"><h2>جاهز ننجز معاملاتك؟</h2><p>تواصل معنا الآن عبر واتساب وابدأ رحلتك نحو إنجاز أسرع</p></div>
           <div className="reference-closing__buttons">
             <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer" className="reference-whatsapp-number"><MessageCircle /> 0590097275</a>
@@ -226,16 +207,16 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
 
       <footer className="reference-footer">
         <div className="container-shell reference-footer__grid">
-          <div className="reference-footer__brand"><BrandMark inverse /><p>إنجازك مكتب متخصص في متابعة وتعقيب المعاملات للأفراد والمنشآت، بخبرة ووضوح ومتابعة مستمرة.</p></div>
-          <div><h3>لماذا إنجازك؟</h3><div className="reference-footer__points"><span><Star /> خبرة عملية</span><span><ShieldCheck /> خصوصية وأمان</span><span><MessageCircle /> دعم عبر واتساب</span><span><MapPin /> جميع المناطق</span></div></div>
-          <div><h3>تواصل معنا</h3><a className="reference-footer__link" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle /> 0590097275</a><a className="reference-footer__link" href={TIKTOK_URL} target="_blank" rel="noreferrer">TikTok @mror_angazk <ExternalLink /></a></div>
           <a href={TIKTOK_URL} target="_blank" rel="noreferrer" className="reference-tiktok-card"><strong>TikTok</strong><span>@mror_angazk</span><small>محتوى معرفي ونصائح وخدمات يومية</small></a>
+          <div><h3>تواصل معنا</h3><a className="reference-footer__link" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle /> 0590097275</a><a className="reference-footer__link" href={TIKTOK_URL} target="_blank" rel="noreferrer">TikTok @mror_angazk <ExternalLink /></a></div>
+          <div><h3>لماذا إنجازك؟</h3><div className="reference-footer__points"><span><MapPin /> المملكة العربية السعودية</span><span><ShieldCheck /> خصوصية وأمان</span><span><Zap /> سرعة وإنجاز</span><span><Star /> خبرة عملية</span></div></div>
+          <div className="reference-footer__brand"><BrandMark inverse /><p>إنجازك مكتب متخصص في متابعة وتعقيب المعاملات للأفراد والمنشآت، بخبرة ووضوح ومتابعة مستمرة.</p></div>
+          <div className="reference-footer__year"><strong>96</strong><span>عامًا من المجد والإنجاز<br />ووطنًا مصدر فخرنا</span></div>
         </div>
-        <div className="reference-footer__bottom"><div className="container-shell">سياسة الخصوصية &nbsp;&nbsp; | &nbsp;&nbsp; الشروط والأحكام <span>© 2026 إنجازك — جميع الحقوق محفوظة</span></div></div>
+        <div className="reference-footer__bottom"><div className="container-shell"><span>سياسة الخصوصية &nbsp;&nbsp; | &nbsp;&nbsp; الشروط والأحكام</span><span>© 2026 إنجازك — جميع الحقوق محفوظة</span></div></div>
       </footer>
 
       <RequestModal open={open} onClose={() => setOpen(false)} initialService={selected} />
-      <WhatsAppFab />
     </main>
   )
 }
