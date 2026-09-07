@@ -19,23 +19,55 @@ body {
   background: #fff;
   color: var(--ink);
   font-family: var(--font-arabic), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: #e7cf91; color: #0b2a4a; }
 
 .container-shell {
-  width: min(1180px, calc(100% - 32px));
+  width: min(1500px, calc(100% - 48px));
   margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .container-shell { width: min(100% - 28px, 1500px); }
 }
 
 .soft-shadow { box-shadow: 0 18px 50px rgba(11, 42, 74, .09); }
 .card-border { border: 1px solid rgba(11, 42, 74, .10); }
+.reference-card { box-shadow: 0 10px 26px rgba(11, 42, 74, .06); }
+
+.section-kicker {
+  color: #b1842e;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: #0b2a4a;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  width: 42px;
+  height: 2px;
+  border-radius: 99px;
+  background: #d4a94f;
+}
 
 .news-track {
   display: flex;
   width: max-content;
-  animation: ticker 34s linear infinite;
+  animation: ticker 31s linear infinite;
 }
 .news-track:hover { animation-play-state: paused; }
 @keyframes ticker {
