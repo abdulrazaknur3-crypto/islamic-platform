@@ -1,93 +1,47 @@
-'use client';
+import { redirect } from 'next/navigation'
+import { Clock3, FileCheck2, FilePlus2, Users } from 'lucide-react'
+import { AdminShell } from '@/components/admin/admin-shell'
+import { RequestTable, type AdminRequestRow } from '@/components/admin/request-table'
+import { createClient, hasSupabaseConfig } from '@/lib/supabase/server'
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { createClient } from '@/src/supabase-browser';
+export const dynamic = 'force-dynamic'
 
-export default function AdminLoginPage() {
-  const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+export default async function AdminPage() {
+  if (!hasSupabaseConfig()) redirect('/admin/login')
 
-  async function handleLogin() {
-    setError('');
-    setLoading(true);
-    const supabase = createClient();
-    const { data, error: authError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (authError || !data.user) {
-      setError('البريد أو كلمة المرور غير صحيحة');
-      setLoading(false);
-      return;
-    }
-    // التحقق من كونه مشرفًا
-    const { data: admin } = await supabase
-      .from('admins')
-      .select('user_id')
-      .eq('user_id', data.user.id)
-      .maybeSingle();
-    if (!admin) {
-      await supabase.auth.signOut();
-      setError('هذا الحساب ليس لديه صلاحية الدخول');
-      setLoading(false);
-      return;
-    }
-    router.push('/admin/dashboard');
-    router.refresh();
-  }
+  const supabase = await createClient()
+  const { data: authData } = await supabase.auth.getUser()
+  if (!authData.user) redirect('/admin/login')
+
+  const [{ data: profile }, { data: requestRows }] = await Promise.all([
+    supabase.from('profiles').select('full_name,role').eq('id', authData.user.id).maybeSingle(),
+    supabase.from('requests').select('id,tracking_code,customer_name,phone,city,service_code,status,priority,source,created_at').order('created_at', { ascending: false }).limit(20),
+  ])
+
+  const rows = (requestRows || []) as AdminRequestRow[]
+  const newCount = rows.filter((row) => row.status === 'new').length
+  const inProgress = rows.filter((row) => ['under_review', 'in_progress'].includes(row.status)).length
+  const waiting = rows.filter((row) => row.status === 'waiting_customer').length
+  const completed = rows.filter((row) => row.status === 'completed').length
+
+  const cards = [
+    [FilePlus2, 'طلبات جديدة', newCount, 'bg-blue-50 text-blue-700'],
+    [Clock3, 'قيد التنفيذ', inProgress, 'bg-amber-50 text-amber-700'],
+    [Users, 'بانتظار العميل', waiting, 'bg-orange-50 text-orange-700'],
+    [FileCheck2, 'مكتملة', completed, 'bg-emerald-50 text-emerald-700'],
+  ] as const
 
   return (
-    <div dir="rtl" className="flex min-h-screen items-center justify-center bg-cream px-4">
-      <div className="w-full max-w-sm rounded-2xl border border-outline-variant/40 bg-white p-8 shadow-sm">
-        <div className="text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-deep-sea">
-            <span className="material-symbols-outlined text-3xl text-white">shield_person</span>
-          </div>
-          <h1 className="mt-4 text-xl font-bold text-deep-sea">لوحة تحكم المنصة</h1>
-          <p className="mt-1 text-sm text-earth-brown">تسجيل دخول المشرفين</p>
-        </div>
-
-        <div className="mt-8 space-y-4">
-          <div>
-            <label className="text-sm font-medium text-ink-text">البريد الإلكتروني</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="mt-1 w-full rounded-lg border border-outline-variant/60 bg-white px-4 py-2.5 text-sm outline-none focus:border-shore-blue"
-              placeholder="admin@example.com"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-ink-text">كلمة المرور</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="mt-1 w-full rounded-lg border border-outline-variant/60 bg-white px-4 py-2.5 text-sm outline-none focus:border-shore-blue"
-              placeholder="••••••••"
-            />
-          </div>
-
-          {error && (
-            <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
-          )}
-
-          <button
-            onClick={handleLogin}
-            disabled={loading}
-            className="w-full rounded-lg bg-deep-sea py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
-            {loading ? 'جارٍ الدخول...' : 'دخول'}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+    <AdminShell role={profile?.role === 'admin' ? 'المدير العام' : profile?.role || 'موظف'}>
+      <section className="rounded-[24px] bg-gradient-to-l from-[#0a664c] via-[#0a4b45] to-[#123b5a] p-6 text-white shadow-lg sm:p-8">
+        <div className="text-xs font-semibold text-[#f2d680]">لوحة العمليات</div>
+        <h1 className="mt-2 text-3xl font-bold">مرحبًا {profile?.full_name || 'أبو مشاري'} 👋</h1>
+        <p className="mt-2 text-sm text-white/70">من هنا تستقبل الطلبات وتتابع الحالات وتدير أخبار الشريط المتحرك.</p>
+      </section>
+      <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {cards.map(([Icon, label, value, style]) => <div key={label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-start justify-between"><div><div className="text-xs font-semibold text-slate-500">{label}</div><div className="mt-2 text-3xl font-bold text-[#0b2a4a]">{value}</div></div><div className={`grid h-11 w-11 place-items-center rounded-xl ${style}`}><Icon className="h-5 w-5" /></div></div></div>)}
+      </section>
+      <section className="mt-6"><RequestTable rows={rows} /></section>
+    </AdminShell>
+  )
 }
