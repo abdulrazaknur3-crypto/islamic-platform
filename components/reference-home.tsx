@@ -84,7 +84,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
           <div className="reference-hero__content">
             <div className="reference-hero__brand"><BrandMark /></div>
             <h1 className="reference-hero__title">معاملتك علينا..<span>ووقتك لك</span></h1>
-            <p className="reference-hero__lead">مكتب متخصص في متابعة وإنجاز جميع المعاملات لدى الدوائر الحكومية للأفراد وقطاع الأعمال بخبرة وموثوقية عالية.</p>
+            <p className="reference-hero__lead">مكتب متخصص في متابعة وإنجاز جميع المعاملات لدى الدوائر الحكومية للأفراد وقطاع الأعمال، بخبرة وموثوقية عالية.</p>
             <div className="reference-hero__actions">
               <button onClick={() => request()} className="btn-reference btn-reference--green"><MessageCircle className="h-5 w-5" /> اطلب الخدمة عبر واتساب</button>
               <a href="#services" className="btn-reference btn-reference--outline">استعرض الخدمات <List className="h-5 w-5" /></a>
@@ -106,7 +106,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
 
       <section id="services" className="reference-section reference-services">
         <div className="container-shell">
-          <div className="reference-heading"><span className="reference-heading__line" /><h2>الخدمات الأكثر طلبًا</h2><span className="reference-heading__line" /></div>
+          <div className="reference-heading"><span /><h2>الخدمات الأكثر طلبًا</h2><span /></div>
           <p className="reference-subtitle">اختر الخدمة التي تحتاجها ودع الباقي علينا</p>
           <div className="reference-services__grid">
             {filtered.slice(0, 8).map((service) => {
@@ -120,7 +120,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
             })}
           </div>
           <label className="reference-search">
-            <Search className="h-5 w-5" />
+            <Search className="reference-search__icon" />
             <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="ابحث عن معاملتك أو الخدمة المطلوبة ..." aria-label="ابحث عن معاملة" />
             <span className="reference-search__example">مثال: نقل كفالة، إصدار إقامة، تجديد رخصة القيادة، فتح سجل تجاري ...</span>
           </label>
@@ -130,7 +130,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
 
       <section className="reference-section reference-process">
         <div className="container-shell">
-          <div className="reference-heading"><span className="reference-heading__line" /><h2>كيف نخدمك؟</h2><span className="reference-heading__line" /></div>
+          <div className="reference-heading"><span /><h2>كيف نخدمك؟</h2><span /></div>
           <p className="reference-subtitle">خطوات بسيطة .. لنتائج مضمونة</p>
           <div className="reference-process__steps">
             {processSteps.map(([title, description], index) => {
@@ -151,7 +151,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
         <div className="container-shell">
           <div className="reference-updates__top">
             <a href="#updates" className="reference-source-button">عرض جميع الأخبار</a>
-            <div className="reference-heading reference-heading--compact"><span className="reference-heading__line" /><h2>آخر تحديثات الجهات الحكومية</h2><span className="reference-heading__line" /></div>
+            <div className="reference-heading reference-heading--compact"><span /><h2>آخر تحديثات الجهات الحكومية</h2><span /></div>
             <a href="#updates" className="reference-source-button">شاهد المصادر الرسمية</a>
           </div>
           <div className="reference-news-grid">
@@ -160,12 +160,12 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
                 <div className="reference-news-card__visual">
                   <img src={`/reference/news-thumb-${index + 1}.svg`} alt="" draggable={false} />
                   <span>{item.category}</span>
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="reference-news-card__link-icon" />
                 </div>
                 <div className="reference-news-card__body">
                   <div className="reference-news-card__meta">{item.sourceName}</div>
                   <h3>{item.title}</h3>
-                  <div className="reference-news-card__source">المصدر الرسمي <ExternalLink className="h-3.5 w-3.5" /></div>
+                  <div className="reference-news-card__source">المصدر الرسمي <ExternalLink /></div>
                 </div>
               </a>
             ))}
@@ -175,7 +175,7 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
 
       <section className="reference-section reference-testimonials">
         <div className="container-shell">
-          <div className="reference-heading"><span className="reference-heading__line" /><h2>آراء عملائنا</h2><span className="reference-heading__line" /></div>
+          <div className="reference-heading"><span /><h2>آراء عملائنا</h2><span /></div>
           <p className="reference-subtitle">ثقة عملائنا هي سر استمرارنا</p>
           <div className="reference-testimonials__grid">
             {testimonials.map((item, index) => (
@@ -208,8 +208,8 @@ export function ReferenceHome({ news }: { news: NewsItem[] }) {
       <footer className="reference-footer">
         <div className="container-shell reference-footer__grid">
           <a href={TIKTOK_URL} target="_blank" rel="noreferrer" className="reference-tiktok-card"><strong>TikTok</strong><span>@mror_angazk</span><small>محتوى معرفي ونصائح وخدمات يومية</small></a>
-          <div><h3>تواصل معنا</h3><a className="reference-footer__link" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle /> 0590097275</a><a className="reference-footer__link" href={TIKTOK_URL} target="_blank" rel="noreferrer">TikTok @mror_angazk <ExternalLink /></a></div>
-          <div><h3>لماذا إنجازك؟</h3><div className="reference-footer__points"><span><MapPin /> المملكة العربية السعودية</span><span><ShieldCheck /> خصوصية وأمان</span><span><Zap /> سرعة وإنجاز</span><span><Star /> خبرة عملية</span></div></div>
+          <div className="reference-footer__contact"><h3>تواصل معنا</h3><a className="reference-footer__link" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle /> 0590097275</a><a className="reference-footer__link" href={TIKTOK_URL} target="_blank" rel="noreferrer">TikTok @mror_angazk <ExternalLink /></a></div>
+          <div className="reference-footer__trust"><h3>لماذا إنجازك؟</h3><div className="reference-footer__points"><span><MapPin /> المملكة العربية السعودية</span><span><ShieldCheck /> خصوصية وأمان</span><span><Zap /> سرعة وإنجاز</span><span><Star /> خبرة عملية</span></div></div>
           <div className="reference-footer__brand"><BrandMark inverse /><p>إنجازك مكتب متخصص في متابعة وتعقيب المعاملات للأفراد والمنشآت، بخبرة ووضوح ومتابعة مستمرة.</p></div>
           <div className="reference-footer__year"><strong>96</strong><span>عامًا من المجد والإنجاز<br />ووطنًا مصدر فخرنا</span></div>
         </div>
