@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   Building2,
   CarFront,
+  FileText,
   Fingerprint,
   LayoutGrid,
   Scale,
@@ -45,39 +46,37 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="bg-white py-16 sm:py-20">
+    <section id="services" className="bg-white py-14 sm:py-16">
       <div className="container-shell">
         <div className="text-center">
-          <span className="text-sm font-bold text-[#b1842e]">اختر وابدأ</span>
-          <h2 className="mt-2 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">الخدمات الأكثر طلبًا</h2>
-          <p className="mt-3 text-sm text-slate-500">اختر الخدمة التي تحتاجها، أو ابحث باسم معاملتك.</p>
+          <span className="section-kicker">اختر وابدأ</span>
+          <h2 className="section-title mt-2">الخدمات الأكثر طلبًا</h2>
+          <p className="mt-3 text-base font-medium text-slate-500">اختر الخدمة التي تحتاجها ودع الباقي علينا</p>
         </div>
 
-        <div className="mx-auto mt-8 flex max-w-3xl items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 shadow-sm focus-within:border-[#d4a94f] focus-within:bg-white">
-          <Search className="h-5 w-5 text-slate-400" />
-          <input value={query} onChange={(e) => setQuery(e.target.value)} className="w-full bg-transparent text-sm text-[#0b2a4a] outline-none" placeholder="ابحث عن معاملتك أو الخدمة المطلوبة... مثال: نقل ملكية، إقامة، سجل تجاري" />
-        </div>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
           {filtered.map((service) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap]
             return (
-              <button key={service.id} onClick={() => request(service.id)} className="group rounded-2xl border border-slate-200 bg-white p-5 text-start transition duration-300 hover:-translate-y-1 hover:border-[#d4a94f]/60 hover:shadow-[0_16px_36px_rgba(11,42,74,.08)]">
-                <div className="flex items-start justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#f2f7f5] text-[#087a4b] transition group-hover:bg-[#087a4b] group-hover:text-white"><Icon className="h-6 w-6" /></div>
-                  <span className="text-lg text-[#d4a94f] transition group-hover:translate-x-[-3px]">←</span>
-                </div>
-                <h3 className="mt-5 text-base font-bold text-[#0b2a4a]">{service.name}</h3>
-                <p className="mt-2 text-xs leading-6 text-slate-500">{service.shortDescription}</p>
+              <button key={service.id} onClick={() => request(service.id)} className="group rounded-[12px] border border-slate-200 bg-white px-4 py-5 text-center reference-card transition duration-300 hover:-translate-y-1 hover:border-[#d4a94f] hover:shadow-[0_16px_35px_rgba(11,42,74,.09)]">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-[18px] bg-[#f2f8f5] text-[#087a4b] transition group-hover:bg-[#087a4b] group-hover:text-white"><Icon className="h-8 w-8" /></div>
+                <h3 className="mt-4 text-[17px] font-extrabold text-[#0b2a4a]">{service.name}</h3>
               </button>
             )
           })}
         </div>
 
-        {!filtered.length && <div className="mt-8 rounded-2xl bg-[#fff8e8] p-6 text-center text-sm text-[#6e541e]">لم نعثر على اسم الخدمة. اشرح طلبك لنا عبر واتساب وسنحدد لك المسار المناسب.</div>}
+        <div className="mx-auto mt-6 grid max-w-6xl gap-4 lg:grid-cols-[1fr_1.2fr]">
+          <div className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-500 shadow-sm">
+            <FileText className="h-5 w-5 text-[#173d60]" /> مثال: نقل كفالة، إصدار إقامة، تجديد رخصة القيادة، فتح سجل تجاري ...
+          </div>
+          <label className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-white px-5 py-4 shadow-sm focus-within:border-[#d4a94f]">
+            <Search className="h-6 w-6 text-slate-400" />
+            <input value={query} onChange={(e) => setQuery(e.target.value)} className="w-full bg-transparent text-base font-medium text-[#0b2a4a] outline-none" placeholder="ابحث عن معاملتك أو الخدمة المطلوبة ..." />
+          </label>
+        </div>
       </div>
-
-      <RequestModal open={open} onClose={() => setOpen(false)} initialService={selected} />
+      <RequestModal open={open} initialService={selected} onClose={() => setOpen(false)} />
     </section>
   )
 }
